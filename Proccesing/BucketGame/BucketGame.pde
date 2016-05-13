@@ -1,6 +1,7 @@
 float drop = 0;
 PImage garden;
 float speed = 1;
+float dropSize = 100;
 void setup() {
   garden = loadImage("garden.jpg");
   garden.resize(800, 800);
@@ -12,12 +13,14 @@ void draw() {
   background(garden);
   fill(0, 150, 200);
   speed = speed+.5;
-  drop = drop+speed;
+  drop = drop+5;
   
-  ellipse(400, drop, 100, 100);
-  rect(mouseX, 600, 100, 100);
+  ellipse(400, drop, dropSize, dropSize);
+  rect(mouseX, 600, 200, 100);
 
   float dropBottom = drop + 50;
+  float bucketLeftSide = mouseX;
+  float dropLeftSide = 200;
   float bucketTop = 600 - 50;
   println("drop: "+drop);
   if (dropBottom>bucketTop) {
