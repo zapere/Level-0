@@ -9,22 +9,36 @@ void setup() {
   ellipse(500, 500, 350, 350);
   fill(232, 255, 19);
   ellipse(500, 500, 325, 325);
+  fill(0,0,0);
+  textSize(18);
+  text("Press Q, A, Z, P, L, M. Then Try Clicking For The Toppings. And Press Those Buttons Again",100,100);
 }
 void keyPressed() {
   if (key=='q') {
     fill(255, 255, 255);
     ellipse(385, 325, 75, 75);
   }
-  if (key=='a'){
-    fill(255,255,255);
-   ellipse(300,475,75,75); 
+  if (key=='a') {
+    fill(255, 255, 255);
+    ellipse(300, 475, 75, 75);
   }
-  if(key=='z'){
-   fill(255,255,255); 
-    ellipse(385,660,75,75);
-    
+  if (key=='z') {
+    fill(255, 255, 255); 
+    ellipse(385, 660, 75, 75);
   }
- 
+  if (key=='p') {
+    fill(255, 255, 255);
+    ellipse(595, 325, 75, 75);
+  }
+  if (key=='l') {
+    fill(255, 255, 255); 
+    ellipse(680, 530, 75, 75);
+  }
+
+  if (key=='m') {
+    fill(255, 255, 255);
+    ellipse(595,680,75,75);
+  }
 }
 void draw() {
 
