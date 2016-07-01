@@ -1,0 +1,98 @@
+import java.awt.Color;
+
+import org.jointheleague.graphical.robot.Robot;
+
+public class RobotSquare {
+
+	public static void main(String[] args) {
+		int time = 26; 
+		Robot rob = new Robot();
+		rob.penDown();
+		rob.setPenColor(Color.red);
+				
+		rob.setSpeed(10);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(90);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(90);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(90);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(90);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(270);
+		rob.move(200);
+		rob.turn(90);
+		rob.move(200);
+		rob.turn(-270);
+		rob.move(200);
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
