@@ -9,11 +9,11 @@ public class RobotSpiral {
 		me.moveTo(250, 250);
 		me.penDown();
 		me.setPenColor(Colors.getRandomColor());
-		me.setPenWidth(5);
+		me.setPenWidth(1);
 		me.setSpeed(1000);
 		for (int i = 0; i < 1000; i++) {
 			me.move(i);
-			me.turn(30);
+			me.turn(50);
 			me.setPenColor(Colors.getRandomColor());
 		}
 	}
