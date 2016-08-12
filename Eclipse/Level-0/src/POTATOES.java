@@ -2,7 +2,7 @@
 public class POTATOES {
 	public static void main(String[] args) {
 		System.out.println("1 Potato");
-		for (int i = 2; i < 3; i = i + 1) {
+		for (int i = 2; i < 4; i = i + 1) {
 			System.out.println(i + " Potatoes");
 		}
 		System.out.println("4");
@@ -11,5 +11,6 @@ public class POTATOES {
 		}
 		System.out.println("MOREEEE!");
 
+		
 	}
 }
