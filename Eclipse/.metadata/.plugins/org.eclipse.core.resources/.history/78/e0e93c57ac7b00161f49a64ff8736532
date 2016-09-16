@@ -1,0 +1,26 @@
+import org.jointheleague.graphical.robot.Robot;
+import org.teachingextensions.logo.Colors;
+
+public class RegularPolygons {
+	public static void main(String[] args) {
+		Robot robot = new Robot();
+		robot.setSpeed(100);
+		robot.penDown();
+		robot.setPenColor(Colors.getRandomColor());
+		int sides = 25;
+		float angle = getAngle(sides);
+		System.out.println(angle);
+		for(int i=0;i<sides;i=i+1){
+			robot.setPenColor(Colors.getRandomColor());
+			robot.move(20);
+			robot.turn((int) (180-angle));
+			
+		}
+robot.moveTo(0, 0);
+	}
+	public static float getAngle(int sides){
+		float total = sides*180-360;
+		float angle = total/sides;
+		return angle;
+	}
+}

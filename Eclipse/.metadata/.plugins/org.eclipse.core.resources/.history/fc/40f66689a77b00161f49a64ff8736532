@@ -1,0 +1,19 @@
+import org.jointheleague.graphical.robot.Robot;
+
+public class RegularPolygons {
+	public static void main(String[] args) {
+		Robot robot = new Robot();
+		int sides = 8;
+		float angle = getAngle(sides);
+		System.out.println(angle);
+		for(int i=0;i<9;i=i+1){
+			robot.move(100);
+			robot.turn(135);
+		}
+	}
+	public static float getAngle(int sides){
+		float total = sides*180-360;
+		float angle = total/sides;
+		return angle;
+	}
+}
