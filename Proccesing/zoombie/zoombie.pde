@@ -2,6 +2,11 @@ float leftPupilX = 242;
 float leftPupilY = 242;
 float rightPupilX = 419;
 float rightPupilY = 100;
+int liX = 241;
+int liY = 263;
+float iR = 12.5;
+int riX = 418;
+int riY = 251;
 void setup()
 {
   //noStroke();
@@ -36,11 +41,11 @@ void draw ()
     rightPupilX=429;
   }
   rightPupilY=mouseY;
-  if(rightPupilY<239){
-   rightPupilY=239; 
+  if (rightPupilY<239) {
+    rightPupilY=239;
   }
-  if(rightPupilY>262){
-   rightPupilY=262; 
+  if (rightPupilY>262) {
+    rightPupilY=262;
   }
   //iris
   fill(random(mouseX), random(mouseX), random(mouseY));
@@ -48,8 +53,17 @@ void draw ()
   ellipse(417, 250, 40, 40);
   //pupil
   fill(random(mouseX), random(mouseY), random(mouseX));
-  ellipse(leftPupilX, leftPupilY, 15, 15);
-  ellipse(rightPupilX, rightPupilY, 15, 15);
-  println(""+mouseY);
+  int x=liX-mouseX;
+  int y=liY-mouseY;
+  float r=sqrt(x*x+y*y);
+  if (r<iR) {
+    ellipse(leftPupilX, leftPupilY, 15, 15);
+  }
+  x=riX-mouseX;
+  y=riY-mouseY;
+  r=sqrt(x*x+y*y);
+ if(r<iR){ ellipse(rightPupilX, rightPupilY, 15, 15);
+ }
+  println(""+mouseX+", "+mouseY);
 }
 
