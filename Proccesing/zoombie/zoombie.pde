@@ -5,10 +5,15 @@ float rightPupilY = 100;
 int liX = 241;
 int liY = 263;
 float iR = 12.5;
+float iD = 0;
 int riX = 418;
 int riY = 251;
+float pR = 7.5;
+float eR = 0;
+
 void setup()
 {
+   pD = 2*pR;
   //noStroke();
   PImage face = loadImage("face.jpeg");
   size(face.width, face.height);
@@ -20,50 +25,36 @@ void draw ()
   PImage face = loadImage("face.jpeg");
   image(face, 0, 0);
   leftPupilX=mouseX;
-  if (leftPupilX<230.5) {
-    leftPupilX=230.5;
-  }
-  if (leftPupilX>254) {
-    leftPupilX=254;
-  }
+
   leftPupilY=mouseY;
-  if (leftPupilY<251) {
-    leftPupilY=251;
-  }
-  if (leftPupilY>275) {
-    leftPupilY=275;
-  }
+
   rightPupilX=mouseX;
-  if (rightPupilX<406) {
-    rightPupilX=406;
-  }
-  if (rightPupilX>429) {
-    rightPupilX=429;
-  }
+
   rightPupilY=mouseY;
-  if (rightPupilY<239) {
-    rightPupilY=239;
-  }
-  if (rightPupilY>262) {
-    rightPupilY=262;
-  }
+
   //iris
-  fill(random(mouseX), random(mouseX), random(mouseY));
+  fill(255, 255, 255);
   ellipse(242, 262, 40, 40);
   ellipse(417, 250, 40, 40);
   //pupil
-  fill(random(mouseX), random(mouseY), random(mouseX));
+  fill(255, 255, 255);
   int x=liX-mouseX;
   int y=liY-mouseY;
   float r=sqrt(x*x+y*y);
-  if (r<iR) {
+  if (r<iR-pR) {
     ellipse(leftPupilX, leftPupilY, 15, 15);
+  } else {
+    float t = atan2(y, x);
+    float pX = eR*cos(t)-liX;
+    float pY = eR*sin(t)-liY; 
+    ellipse(pX, pY, pD, pD);
   }
   x=riX-mouseX;
   y=riY-mouseY;
   r=sqrt(x*x+y*y);
- if(r<iR){ ellipse(rightPupilX, rightPupilY, 15, 15);
- }
+  if (r<iR-pR) { 
+    ellipse(rightPupilX, rightPupilY, 15, 15);
+  }
   println(""+mouseX+", "+mouseY);
 }
 
