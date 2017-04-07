@@ -10,35 +10,54 @@ int paddleWidth = 10;
 int paddleHeight = 75;
 int ballX = 325;
 int ballY = 225;
-int xVelocity = 2;
-int yVelocity = 2;
+int xVelocity = 0;
+int yVelocity = 0;
 float ballLeft = ballX-12.5;
 int paddle1Right = paddle1X + paddleWidth;
+int paddle2Right = paddle2X + paddleWidth;
+float ballRight = ballX+12.5;
+PFont f;
+int player1Score = 0;
+int player2Score = 0;
+
 void setup() {
-  size(650, 450);
+  size(1000, 450);
+  f = createFont("Arial", 16, true);
 }
 void draw() {
   background(255, 255, 255);
   drawBoard();
+  rect(650, 50, 300, 350);
+  fill(0);
+  textFont(f, 16);
+  text("Player 1", 700, 100);
+  text("Player 2", 850, 100);
+  text(""+player1Score, 725,150);
+  text(""+player2Score,875,150);
+  fill(255);
   rect(paddle1X, paddle1Y, paddleWidth, paddleHeight);
   rect(paddle2X, paddle2Y, paddleWidth, paddleHeight);
   drawBall();
   ballY=ballY-yVelocity;
   ballX=ballX+xVelocity;
   ballLeft = ballX-12.5;
+  ballRight = ballX+12.5;
 
-  //  if (paddle1X<ballX&&ballX<paddle1X+paddleWidth) {
-  //    xVelocity = (-1)*xVelocity;
-  //  }
+
 
   if (ballLeft<=paddle1Right && ballY>paddle1Y && ballY<paddle1Y+paddleHeight) {
     xVelocity=xVelocity*(-1);
+  } 
+
+
+  if (ballRight>=paddle2X && ballY>paddle2Y && ballY<paddle2Y+paddleHeight) {
+    xVelocity=xVelocity*(-1);
   } else {
-    if (ballX-12.5<=left) {
+    if (ballX+12.5>=right) {
       xVelocity=xVelocity*(-1);
     }
   }
-  
+
   if (ballY-12.5<=top) {
     yVelocity=yVelocity*(-1);
   }
@@ -48,8 +67,22 @@ void draw() {
   if (ballX+12.5>=right) {
     xVelocity=xVelocity*(-1);
   }
-}
 
+  if (ballX-12.5>600) {
+    ballX = 325;
+    ballY = 225; 
+    xVelocity = 0;
+    yVelocity = 0;
+    player1Score = player1Score+1;
+  }
+  if (ballX+12.5<50) {
+    ballX = 325;
+    ballY = 225; 
+    xVelocity = 0;
+    yVelocity = 0;
+    player2Score = player2Score+1;
+  }
+}
 void drawBall() {
   ellipse(ballX, ballY, 25, 25);
 }
@@ -58,6 +91,12 @@ void drawBoard() {
   line(right, top, right, bottom);
   line(right, bottom, left, bottom);
   line(left, bottom, left, top);
+}
+void mousePressed() {
+  if (mousePressed) {
+    xVelocity=2;
+    yVelocity=2;
+  }
 }
 void keyPressed() {
   if (key=='w') {
